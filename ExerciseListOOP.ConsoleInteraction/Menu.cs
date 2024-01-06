@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using ExerciseListOOP.ConsoleInteraction.Components;
 
 namespace ExerciseListOOP.ConsoleInteraction
 {
-    internal class Menu
+    public class Menu
     {
         public string[] Items { get; private set; }
         private int selectedIndex;
@@ -17,7 +14,7 @@ namespace ExerciseListOOP.ConsoleInteraction
             selectedIndex = 0;
         }
 
-        public int DisplayMenu(string? title = null)
+        public int DisplayMenu(string? title = null, string color = "White")
         {
             ConsoleKeyInfo key;
             Console.CursorVisible = false;
@@ -27,7 +24,7 @@ namespace ExerciseListOOP.ConsoleInteraction
                 do
                 {
                     Console.Clear();
-                    RenderMenu(title);
+                    RenderMenu(title, color);
 
                     key = Console.ReadKey(true);
 
@@ -43,13 +40,11 @@ namespace ExerciseListOOP.ConsoleInteraction
             return selectedIndex;
         }
 
-        private void RenderMenu(string? title = null)
+        private void RenderMenu(string title, string color)
         {
-            if (title != null)
+            if (!string.IsNullOrWhiteSpace(title))
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(title);
-                Console.ResetColor();
+                Message.WriteTitle(title, color);
             }
 
             Console.WriteLine("\nSelecione uma opção: \n");
