@@ -1,4 +1,6 @@
-﻿using ExerciseListOOP.ConsoleInteraction.Components;
+﻿
+using ExerciseListOOP.ConsoleInteraction.Components;
+using ExerciseListOOP.Domain.Service;
 
 namespace ExerciseListOOP.Domain
 {
@@ -6,7 +8,23 @@ namespace ExerciseListOOP.Domain
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Title.POOList());
+
+            MainMenu menuService = new MainMenu();
+            string title = Title.POOList();
+            string titleColor = "Cyan";
+
+            try
+            {
+                while (true)
+                {
+                    int userSelection = menuService.Display(title, titleColor);
+                    menuService.Analyze(userSelection);
+                }
+            }
+            catch (Exception ex)
+            {
+                Message.CatchException(ex);
+            }
         }
     }
 }
