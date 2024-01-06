@@ -17,7 +17,7 @@ namespace ExerciseListOOP.ConsoleInteraction.Components
             string titleError = Title.Error();
             WriteTitle(titleError, "Red");
 
-            LogAndConsoleWrite(prompt);
+            LogAndConsoleWrite(prompt, "Erro");
             PressAnyKeyToContinue();
         }
 
