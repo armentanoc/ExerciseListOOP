@@ -1,6 +1,4 @@
-﻿
-
-namespace ExerciseListOOP.Domain.Service
+﻿namespace ExerciseListOOP.Domain.Service
 {
     public interface IMenuConvertible
     {

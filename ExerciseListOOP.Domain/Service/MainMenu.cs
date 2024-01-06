@@ -1,6 +1,6 @@
 ﻿using ExerciseListOOP.ConsoleInteraction.Components;
 using ExerciseListOOP.ConsoleInteraction;
-using ExerciseListOOP.Domain.TemperatureConverter;
+using ExerciseListOOP.Domain.Model.TemperatureConverter;
 
 namespace ExerciseListOOP.Domain.Service
 {
@@ -39,45 +39,34 @@ namespace ExerciseListOOP.Domain.Service
                     DisplayOption(new TemperatureConverter());
                     break;
                 case 1:
-                    ChoosenOption(selectedOption);
-                    Message.PressAnyKeyToContinue();
+                    DisplayOption(new PrimeNumberChecker());
                     break;
                 case 2:
-                    ChoosenOption(selectedOption);
-                    Message.PressAnyKeyToContinue();
+                    DisplayOption(new FactorialCalculator());
                     break;
                 case 3:
-                    ChoosenOption(selectedOption);
-                    Message.PressAnyKeyToContinue();
+                    DisplayOption(new NumberSorter());
                     break;
                 case 4:
-                    ChoosenOption(selectedOption);
-                    Message.PressAnyKeyToContinue();
+                    DisplayOption(new PalindromeChecker());
                     break;
                 case 5:
-                    ChoosenOption(selectedOption);
-                    Message.PressAnyKeyToContinue();
+                    DisplayOption(new SquareRootCalculator());
                     break;
                 case 6:
-                    ChoosenOption(selectedOption);
-                    Message.PressAnyKeyToContinue();
+                    DisplayOption(new CurrencyConverter());
                     break;
                 case 7:
-                    ChoosenOption(selectedOption);
-                    Message.PressAnyKeyToContinue();
+                    DisplayOption(new PasswordValidator());
                     break;
                 case 8:
-                    ChoosenOption(selectedOption);
-                    Message.PressAnyKeyToContinue();
+                    DisplayOption(new CpfValidator());
                     break;
                 case 9:
-                    ChoosenOption(selectedOption);
-                    Message.PressAnyKeyToContinue();
+                    DisplayOption(new WordFrequencyAnalyzer());
                     break;
                 case 10:
-                    string environmentExit = Title.EnvironmentExit();
-                    Message.WriteTitle(environmentExit);
-                    Environment.Exit(0);
+                    HandleExitOption();
                     break;
                 default:
                     Message.Error("Opção inválida selecionada.");
@@ -102,7 +91,7 @@ namespace ExerciseListOOP.Domain.Service
             }
             else
             {
-                Message.Error($"A instância de menu {menuInstance} não implementa a interface IMenuConvertible."); 
+                Message.Error($"A instância de menu {menuInstance} não implementa a interface IMenuConvertible.");
             }
         }
 
