@@ -1,6 +1,6 @@
 ﻿using ExerciseListOOP.ConsoleInteraction.Components;
 using ExerciseListOOP.ConsoleInteraction;
-using ExerciseListOOP.Domain.TemperatureConverter;
+using ExerciseListOOP.Domain.Model.TemperatureConverter;
 using System.Text.RegularExpressions;
 
 namespace ExerciseListOOP.Domain.Service
@@ -46,7 +46,7 @@ namespace ExerciseListOOP.Domain.Service
                     HandleExitOption();
                     break;
                 default:
-                    Console.WriteLine("Opção inválida. Por favor, escolha 1 ou 2.");
+                    Message.Error("Opção inválida. Por favor, escolha 1 ou 2.");
                     Message.PressAnyKeyToContinue();
                     break;
             }
@@ -58,24 +58,24 @@ namespace ExerciseListOOP.Domain.Service
             {
                 Message.WriteTitle(MenuTitle, TitleColor);
                 string typeName = Regex.Replace(_temperatureConverter.GetType().Name, "Converter$", "");
-                Console.Write($"\nDigite a temperatura para converter ({typeName}): ");
+                Message.LogAndConsoleWrite($"\nDigite a temperatura para converter ({typeName}): ");
 
                 double temperature = Convert.ToDouble(Console.ReadLine());
                 double result = _temperatureConverter.Convert(temperature);
 
                 string displayType = _temperatureConverter is CelsiusToFahrenheitConverter ? "Fahrenheit" : "Celsius";
 
-                Console.WriteLine($"\nA temperatura convertida é: {result:F1} Grau {displayType}");
+                Message.LogAndConsoleWrite($"A temperatura convertida é: {result:F1} Grau {displayType}");
 
                 Message.PressAnyKeyToContinue();
             }
             catch (FormatException)
             {
-                Console.WriteLine("Entrada inválida. Por favor, insira um valor numérico.");
+                Message.Error("Entrada inválida. Por favor, insira um valor numérico.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ocorreu um erro: {ex.Message}");
+               Message.CatchException(ex);
             }
         }
 
