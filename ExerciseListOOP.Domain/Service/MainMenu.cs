@@ -1,6 +1,5 @@
 ﻿using ExerciseListOOP.ConsoleInteraction.Components;
 using ExerciseListOOP.ConsoleInteraction;
-using ExerciseListOOP.Domain.Model.TemperatureConverter;
 
 namespace ExerciseListOOP.Domain.Service
 {
