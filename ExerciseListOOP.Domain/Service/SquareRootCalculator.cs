@@ -60,7 +60,7 @@ namespace ExerciseListOOP.Domain.Service
                 double squareRoot = CalculateSquareRootNewtonRaphson(number);
 
                 Message.LogAndConsoleWrite($"A raiz quadrada de {number} é: {squareRoot:F4}");
-               
+                Message.PressAnyKeyToContinue();
             }
             catch (FormatException)
             {
