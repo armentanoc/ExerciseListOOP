@@ -31,3 +31,7 @@ Certifique-se de ter o ambiente de desenvolvimento C# configurado. Após clonar 
 
 ```bash
 dotnet run
+```
+
+## 📹 Demo Video 
+https://github.com/armentanoc/ExerciseListOOP/assets/88147887/d5148b4c-77df-43a6-8a16-d93887201beb
